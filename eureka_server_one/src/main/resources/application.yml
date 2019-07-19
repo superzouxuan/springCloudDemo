@@ -1,0 +1,30 @@
+server:
+  port: 8761
+
+eureka:
+  server:
+    enable-self-preservation: true
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://admin:123456@${eureka.instance.hostname}:8762/eureka/
+
+spring:
+  security:
+    user:
+      name: admin
+      password: 123456
+  application:
+    name: eurka-server
+  cloud:
+   config:
+         name: eureka-producer
+         label: master
+         profile: test
+         enabled: true
+         fail-fast: false
+         retry:
+           max-attempts: 6

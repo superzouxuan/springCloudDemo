@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.user_service.dao.UserDao">
+
+    <resultMap id="BaseResultMap" type="com.example.user_service.bean.UserBean">
+        <id column="entity_id" jdbcType="BIGINT" property="entityId" />
+        <result column="username" jdbcType="VARCHAR" property="userName" />
+        <result column="password" jdbcType="VARCHAR" property="password" />
+        <result column="account" jdbcType="VARCHAR" property="mobile" />
+    </resultMap>
+
+    <select id="findUserById" resultType="com.example.user_service.bean.UserBean">
+        select * from platform_user WHERE entity_id = #{id}
+    </select>
+
+    <select id="findUserByMobile" resultType="com.example.user_service.bean.UserBean">
+        select * from platform_user WHERE account = #{mobile}
+    </select>
+
+</mapper>

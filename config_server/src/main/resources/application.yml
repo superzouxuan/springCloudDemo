@@ -1,0 +1,20 @@
+server:
+  port: 8763
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://admin:123456@localhost:8762/eureka/,http://admin:123456@localhost:8761/eureka/
+
+spring:
+  application:
+    name: config_server
+  cloud:
+    config:
+      server:
+       git:
+         uri: https://github.com/superzouxuan/cloud_config.git
+         search-paths: /
+         username: superzouxuan
+         password: xiaoyu100693
+      label: master
